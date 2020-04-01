@@ -1,9 +1,11 @@
 import requests
-url = 'https://stepic.org/media/attachments/course67/3.6.3/'
-text = ["dataset_3378_3.txt"]
-while text[0][0:2] != "We":
-    print(url + text[0])
-    r = requests.get(url + text[0])
-    text = r.text.splitlines(True)
 
-open("dataset_3378_3.txt", "w").writelines(text)
+link = 'https://stepic.org/media/attachments/course67/3.6.3/'
+with open('dataset_3378_3.txt') as inf:
+    t = inf.readline().strip()
+
+t = str(requests.get(t).text)
+while 'we' not in t:
+    print(t)
+    t = requests.get(link + t).text
+print(t)
