@@ -1,3 +1,1 @@
 # PythonStepik
-# PythonStepik
-# PythonStepik
